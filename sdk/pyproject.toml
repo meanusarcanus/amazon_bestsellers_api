@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "amazon-bestsellers-api"
+version = "1.0.0"
+authors = [
+  { name="Meanus Arcanus", email="meanusarcanus@gmail.com" },
+]
+description = "Official Python SDK for Amazon Bestsellers & Product Intelligence Scraper Pro."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+dependencies = [
+    "requests>=2.25.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/meanusarcanus/amazon_bestsellers_api"
+"Bug Tracker" = "https://github.com/meanusarcanus/amazon_bestsellers_api/issues"

@@ -1,0 +1,261 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Amazon Bestsellers & Product Intelligence Scraper Pro",
+    "description": "High-performance API engine to scrape Amazon Best Sellers categories, top 100 ranked products, ASINs, prices, ratings, and image URLs across global Amazon domains with AI market opportunity analysis.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Read Root",
+        "operationId": "read_root__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/scrape-amazon-bestsellers": {
+      "post": {
+        "summary": "Scrape Amazon Bestsellers",
+        "operationId": "scrape_amazon_bestsellers_scrape_amazon_bestsellers_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AmazonBestsellersRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AmazonBestsellersResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AmazonBestsellersRequest": {
+        "properties": {
+          "category_url": {
+            "type": "string",
+            "title": "Category Url",
+            "description": "Amazon Best Sellers category or subcategory URL",
+            "example": "https://www.amazon.com/Best-Sellers-Electronics/zgbs/electronics/"
+          },
+          "domain": {
+            "type": "string",
+            "title": "Domain",
+            "description": "Target Amazon TLD domain (.com, .co.uk, .de, .fr, .es, .it)",
+            "default": ".com",
+            "example": ".com"
+          },
+          "search_keyword": {
+            "type": "string",
+            "title": "Search Keyword",
+            "description": "Search keyword for best-selling product discovery",
+            "example": "wireless earbuds"
+          },
+          "max_results": {
+            "type": "integer",
+            "maximum": 100.0,
+            "minimum": 1.0,
+            "title": "Max Results",
+            "description": "Maximum number of Amazon best sellers to return",
+            "default": 10
+          }
+        },
+        "type": "object",
+        "title": "AmazonBestsellersRequest"
+      },
+      "AmazonBestsellersResponse": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "query_type": {
+            "type": "string",
+            "title": "Query Type"
+          },
+          "target_query": {
+            "type": "string",
+            "title": "Target Query"
+          },
+          "domain": {
+            "type": "string",
+            "title": "Domain"
+          },
+          "total_scraped": {
+            "type": "integer",
+            "title": "Total Scraped"
+          },
+          "products": {
+            "items": {
+              "$ref": "#/components/schemas/AmazonProduct"
+            },
+            "type": "array",
+            "title": "Products"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "query_type",
+          "target_query",
+          "domain",
+          "total_scraped",
+          "products"
+        ],
+        "title": "AmazonBestsellersResponse"
+      },
+      "AmazonProduct": {
+        "properties": {
+          "asin": {
+            "type": "string",
+            "title": "Asin"
+          },
+          "rank": {
+            "type": "integer",
+            "title": "Rank"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "price": {
+            "type": "number",
+            "title": "Price"
+          },
+          "currency": {
+            "type": "string",
+            "title": "Currency"
+          },
+          "rating": {
+            "type": "number",
+            "title": "Rating"
+          },
+          "reviews_count": {
+            "type": "integer",
+            "title": "Reviews Count"
+          },
+          "category": {
+            "type": "string",
+            "title": "Category"
+          },
+          "product_url": {
+            "type": "string",
+            "title": "Product Url"
+          },
+          "thumbnail_url": {
+            "type": "string",
+            "title": "Thumbnail Url"
+          },
+          "is_prime": {
+            "type": "boolean",
+            "title": "Is Prime"
+          },
+          "availability": {
+            "type": "string",
+            "title": "Availability"
+          },
+          "ai_market_opportunity": {
+            "type": "string",
+            "title": "Ai Market Opportunity"
+          }
+        },
+        "type": "object",
+        "required": [
+          "asin",
+          "rank",
+          "title",
+          "price",
+          "currency",
+          "rating",
+          "reviews_count",
+          "category",
+          "product_url",
+          "thumbnail_url",
+          "is_prime",
+          "availability",
+          "ai_market_opportunity"
+        ],
+        "title": "AmazonProduct"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

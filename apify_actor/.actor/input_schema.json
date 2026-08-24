@@ -1,0 +1,37 @@
+{
+  "title": "Amazon Bestsellers Scraper Pro Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "category_url": {
+      "title": "Amazon Best Sellers Category URL",
+      "type": "string",
+      "description": "Amazon Best Sellers URL (e.g. https://www.amazon.com/Best-Sellers-Electronics/zgbs/electronics/).",
+      "editor": "textfield",
+      "prefill": "https://www.amazon.com/Best-Sellers-Electronics/zgbs/electronics/"
+    },
+    "domain": {
+      "title": "Amazon Domain TLD",
+      "type": "string",
+      "description": "Amazon TLD domain (.com, .co.uk, .de, .fr, .es, .it).",
+      "editor": "select",
+      "default": ".com",
+      "enum": [".com", ".co.uk", ".de", ".fr", ".es", ".it"]
+    },
+    "search_keyword": {
+      "title": "Search Keyword",
+      "type": "string",
+      "description": "Product search query for best-seller discovery.",
+      "editor": "textfield",
+      "prefill": "wireless earbuds"
+    },
+    "max_results": {
+      "title": "Max Products to Extract",
+      "type": "integer",
+      "description": "Maximum number of Amazon best sellers to scrape.",
+      "editor": "number",
+      "default": 20,
+      "prefill": 20
+    }
+  }
+}

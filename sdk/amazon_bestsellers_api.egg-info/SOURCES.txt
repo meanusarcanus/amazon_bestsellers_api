@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+amazon_bestsellers/__init__.py
+amazon_bestsellers/client.py
+amazon_bestsellers_api.egg-info/PKG-INFO
+amazon_bestsellers_api.egg-info/SOURCES.txt
+amazon_bestsellers_api.egg-info/dependency_links.txt
+amazon_bestsellers_api.egg-info/requires.txt
+amazon_bestsellers_api.egg-info/top_level.txt

@@ -1,0 +1,12 @@
+{
+  "actorSpecification": 1,
+  "name": "amazon-bestsellers-ai",
+  "title": "Amazon Bestsellers & Product Intelligence Scraper Pro",
+  "description": "Scrape Amazon Best Sellers categories, subcategories, top 100 ranked products, ASINs, prices, ratings, and image URLs across .com, .co.uk, .de, .fr, .es, .it. Enriched with AI Market Opportunity scores. Just $2.99/1k items—50% cheaper!",
+  "version": "1.0.0",
+  "meta": {
+    "category": "E_COMMERCE"
+  },
+  "dockerfile": "./Dockerfile",
+  "output": "./output_schema.json"
+}
