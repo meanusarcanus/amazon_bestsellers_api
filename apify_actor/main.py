@@ -17,7 +17,7 @@ async def main():
 
         Actor.log.info(f"Scraping Amazon Bestsellers for category_url='{category_url}' domain='{domain}' keyword='{search_keyword}' (limit: {max_results})")
 
-        api_url = "https://microsaas-agent-api.vercel.app/scrape-amazon-bestsellers"
+        api_url = "https://microsaas-agent-api.onrender.com/scrape-amazon-bestsellers"
         payload = {
             "category_url": category_url,
             "domain": domain,

@@ -9,7 +9,7 @@ class AmazonBestsellersClient:
     """
     Python SDK Client for Amazon Bestsellers Scraper API.
     """
-    def __init__(self, api_key: str, base_url: str = "https://microsaas-agent-api.vercel.app"):
+    def __init__(self, api_key: str, base_url: str = "https://microsaas-agent-api.onrender.com"):
         self.api_key = api_key
         self.base_url = base_url.rstrip("/")
         self.headers = {

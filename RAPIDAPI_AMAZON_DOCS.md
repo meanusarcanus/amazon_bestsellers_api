@@ -8,7 +8,7 @@ Complete, standalone documentation kit for publishing **Amazon Bestsellers & Pro
 
 - **API Name**: `Amazon Bestsellers & Product Intelligence Scraper Pro`
 - **Category**: `E-Commerce` / `Data` / `Shopping`
-- **Base URL**: `https://microsaas-agent-api.vercel.app`
+- **Base URL**: `https://microsaas-agent-api.onrender.com`
 - **Endpoint**: `POST /scrape-amazon-bestsellers`
 
 ---
